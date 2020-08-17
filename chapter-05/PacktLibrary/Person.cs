@@ -2,8 +2,10 @@
 
 namespace Packt.Shared
 {
-    public class Person
+    public class Person : System.Object
     {
-        
+        // fields
+        public string Name;
+        public DateTime DateOfBirth;
     }
 }
