@@ -32,6 +32,8 @@ namespace PersonApp
                 WriteLine($"  {bob.Children[child].Name}");
             }
             WriteLine($"{bob.Name} was born on {bob.HomePlanet}.");
+            bob.WriteToConsole();
+            WriteLine(bob.GetOrigin());
 
             var alice = new Person();
             alice.Name = "Alice Jones";
