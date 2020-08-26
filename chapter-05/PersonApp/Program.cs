@@ -19,7 +19,6 @@ namespace PersonApp
             bob.Children.Add(new Person { Name = "Alfred" });
             bob.Children.Add(new Person { Name = "Zoe" });
 
-
             WriteLine(
                 format: "{0}'s favorite wonder is {1}. It's integer is {2}.",
                 arg0: bob.Name,
@@ -32,6 +31,7 @@ namespace PersonApp
             {
                 WriteLine($"  {bob.Children[child].Name}");
             }
+            WriteLine($"{bob.Name} was born on {bob.HomePlanet}.");
 
             var alice = new Person();
             alice.Name = "Alice Jones";
@@ -60,6 +60,22 @@ namespace PersonApp
             WriteLine(format: "{0} earned {1:C} interest.",
             arg0: gerrierAccount.AccountName,
             arg1: gerrierAccount.Balance * BankAccount.InterestRate);
+
+
+            // Initializing fields using constructors
+            var blankPerson = new Person();
+
+            WriteLine(format: "{0} on {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+            arg0: blankPerson.Name,
+            arg1: blankPerson.HomePlanet,
+            arg2: blankPerson.Instantiated);
+
+            var gunny = new Person("Gunny", "Mars");
+
+            WriteLine(format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}.",
+            arg0: gunny.Name,
+            arg1: gunny.HomePlanet,
+            arg2: gunny.Instantiated);
         }
     }
 }
