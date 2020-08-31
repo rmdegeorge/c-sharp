@@ -34,6 +34,12 @@ namespace PersonApp
             WriteLine($"{bob.Name} was born on {bob.HomePlanet}.");
             bob.WriteToConsole();
             WriteLine(bob.GetOrigin());
+            
+            // calling methods that return tuples
+            (string, int) fruit = bob.GetFruit();
+            WriteLine($"{fruit.Item1}, {fruit.Item2} there are.");
+            var fruitNamed = bob.GetNamedFruit(); // this one uses named tuples
+            WriteLine($"There are {fruitNamed.Number} {fruitNamed.Name}.");
 
             var alice = new Person();
             alice.Name = "Alice Jones";
@@ -78,6 +84,26 @@ namespace PersonApp
             arg0: gunny.Name,
             arg1: gunny.HomePlanet,
             arg2: gunny.Instantiated);
+
+            // Inferring tuple names
+            var thing1 = ("Neville", 4);
+            WriteLine($"{thing1.Item1} has {thing1.Item2} children.");
+
+            var thing2 = (bob.Name, bob.Children.Count);
+            WriteLine($"{thing2.Name} has {thing2.Count} children.");
+
+            // Deconstructing tuples
+            // store return value in a tuple variable with two fields
+            // (string name, int age) tupleWithNamedFields = GetPerson();
+            // tupleWithNamedFields.name;
+            // tupleWithNamedFields.age;
+
+            // deconstruct return value into two separate variables
+            // (string name, int age) = GetPerson();
+            // name
+            // age
+            (string fruitName, int fruitNumber) = bob.GetFruit();
+            WriteLine($"Deconstructed: {fruitName}, {fruitNumber}");
         }
     }
 }
